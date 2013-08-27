@@ -16,13 +16,13 @@ import subprocess
 import glob
 import numpy
 
-NAME                = 'orangeqt-qt'
-DESCRIPTION         = 'orangeqt ploting library'
+NAME                = 'qt-graph-helpers'
+DESCRIPTION         = 'PyQt Graph Primitives for Orange'
 URL                 = "http://orange.biolab.si"
 LICENSE             = 'GNU General Public License (GPL)'
 AUTHOR              = "Bioinformatics Laboratory, FRI UL"
 AUTHOR_EMAIL        = "orange@fri.uni-lj.si"
-VERSION             = '0.0.1a'
+VERSION             = '0.1'
 
 
 
