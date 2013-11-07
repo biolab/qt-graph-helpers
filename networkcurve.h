@@ -24,6 +24,7 @@
 #include "plot.h"
 #include <deque>
 #include <algorithm>
+#include <ostream>
 
 class QueueVertex
 {
