@@ -46,6 +46,7 @@ Curve::Curve(const QList< double >& x_data, const QList< double >& y_data, QGrap
     QObject::connect(&m_pos_watcher, SIGNAL(finished()), SLOT(pointMapFinished()));
     QObject::connect(&m_coords_watcher, SIGNAL(finished()), SLOT(update_point_positions()));
     m_autoUpdate = true;
+    m_segmentLength = 0;
 }
 
 Curve::Curve(QGraphicsItem* parent): PlotItem(parent)
@@ -57,6 +58,7 @@ Curve::Curve(QGraphicsItem* parent): PlotItem(parent)
     m_needsUpdate = 0;
     QObject::connect(&m_pos_watcher, SIGNAL(finished()), SLOT(pointMapFinished()));
     QObject::connect(&m_coords_watcher, SIGNAL(finished()), SLOT(update_point_positions()));
+    m_segmentLength = 0;
 }
 
 
@@ -308,7 +310,17 @@ void Curve::set_style(int style)
     checkForUpdate();
 }
 
+int Curve::segment_length() const
+{
+    return m_segmentLength;
+}
 
+void Curve::set_segment_length(int length)
+{
+    m_segmentLength = length;
+    m_needsUpdate |= UpdatePosition;
+    checkForUpdate();
+}
 
 bool Curve::auto_update() const
 {
@@ -558,7 +570,11 @@ QPainterPath Curve::continuous_path()
     QPointF p;
     for (int i = 1; i < n; ++i)
     {
-        path.lineTo(m_data[i]);
+        if (m_segmentLength && (i % (m_segmentLength) == 0)) {
+            path.moveTo(m_data[i]);
+        } else {
+            path.lineTo(m_data[i]);
+        }
     }
     return m_graphTransform.map(path);
 }

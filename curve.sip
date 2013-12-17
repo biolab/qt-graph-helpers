@@ -62,6 +62,9 @@ public:
   
   bool is_continuous() const;
   void set_continuous(bool continuous);
+
+  int segment_length() const;
+  void set_segment_length(int length);
   
   Data data() const;
   void set_data(const QList<qreal>& x_data, const QList<qreal>& y_data);

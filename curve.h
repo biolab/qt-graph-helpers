@@ -154,6 +154,9 @@ public:
   bool is_continuous() const;
   void set_continuous(bool continuous);
 
+  int segment_length() const;
+  void set_segment_length(int length);
+
   Data data() const;
   void set_data(const QList<double> x_data, const QList<double> y_data);
   
@@ -245,6 +248,7 @@ private:
   UpdateFlags m_needsUpdate;
   bool m_autoUpdate;
   QGraphicsPathItem* m_lineItem;
+  int m_segmentLength;
   bool m_labels_on_marked;
 
   QPen m_pen;
