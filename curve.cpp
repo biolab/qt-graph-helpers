@@ -86,7 +86,7 @@ void Curve::update_number_of_items()
 void Curve::update_properties()
 {
   cancel_all_updates();
-  
+
   bool lines = false;
   bool points = false;
   
@@ -111,7 +111,7 @@ void Curve::update_properties()
           points = !m_continuous;
           break;
   }
-  
+
   m_lineItem->setVisible(lines);
   
   if (lines)

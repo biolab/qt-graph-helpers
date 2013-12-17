@@ -22,7 +22,7 @@ URL                 = "http://orange.biolab.si"
 LICENSE             = 'GNU General Public License (GPL)'
 AUTHOR              = "Bioinformatics Laboratory, FRI UL"
 AUTHOR_EMAIL        = "orange@fri.uni-lj.si"
-VERSION             = '0.1.1'
+VERSION             = '0.1.2'
 
 
 
